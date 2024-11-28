@@ -1,0 +1,31 @@
+name: SonarCloud
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 11 (SonarCloud requires Java)
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'zulu'
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=Markoo2006_simple_math_lib
+            -Dsonar.organization=markoo2006
