@@ -69,4 +69,8 @@ namespace MathLib
 
     // Function to search GCD
     int GCD(int a, int b);
+    
+    // Function to calculate the average of an array
+    double calculateAverage(const std::vector<int>& numbers);
+
 }

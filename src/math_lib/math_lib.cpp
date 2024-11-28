@@ -1,9 +1,16 @@
 #include "math_lib.h"
 #include <cmath>
 #include <algorithm>
+#include <numeric>
 
 namespace MathLib
 {
+    double calculateAverage(const std::vector<int>& numbers) {
+        if (numbers.empty()) return 0.0;
+        double sum = std::accumulate(numbers.begin(), numbers.end(), 0.0);
+        return sum / numbers.size();
+    }
+    
     bool isEqual(double a, double b, double tolerance)
     {
         return abs(a - b) <= tolerance;

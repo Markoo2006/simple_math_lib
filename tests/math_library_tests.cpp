@@ -18,6 +18,15 @@ protected:
     }
 };
 
+TEST(CalculateAverageTest, HandlesPositiveNumbers) {
+    std::vector<int> numbers = { 1, 2, 3, 4, 5 };
+    EXPECT_DOUBLE_EQ(calculateAverage(numbers), 3.0);
+}
+
+TEST(CalculateAverageTest, HandlesEmptyArray) {
+    std::vector<int> numbers = {};
+    EXPECT_DOUBLE_EQ(calculateAverage(numbers), 0.0);
+}
 TEST_F(MathLibTestFixture, AddTwoValues)
 {
     EXPECT_EQ(MathLib::add(10.5, 2.5), 13.0);
